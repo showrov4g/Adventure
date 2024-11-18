@@ -1,7 +1,7 @@
 [
     {
         "AdventureTitle": "Majestic Mountain Trek",
-        "Image": "mountain_trek.jpg",
+        "Image": "https://i.ibb.co/mNL6CKJ/man-traveler-with-backpack-top-mountain-travel-lifestyle-concept.jpg",
         "ID": "MT001",
         "CategoryName": "Mountain Treks",
         "ShortDescription": "A thrilling trek through breathtaking mountain landscapes.",
@@ -17,7 +17,7 @@
     },
     {
         "AdventureTitle": "Alpine Wilderness Expedition",
-        "Image": "alpine_expedition.jpg",
+        "Image": "https://i.ibb.co/hKVgXyW/majestic-mountain-peak-tranquil-alberta-wilderness-generated-by-ai.jpg",
         "ID": "MT002",
         "CategoryName": "Mountain Treks",
         "ShortDescription": "Explore the alpine wilderness with stunning views and diverse wildlife.",
@@ -33,7 +33,7 @@
     },
     {
         "AdventureTitle": "Deep Forest Discovery",
-        "Image": "forest_expedition.jpg",
+        "Image": "https://i.ibb.co/T23Jxcf/sebastian-unrau-sp-p7uu-T0tw-unsplash.jpg",
         "ID": "FE001",
         "CategoryName": "Forest Expeditions",
         "ShortDescription": "Immerse yourself in the tranquility of ancient forests.",
@@ -49,7 +49,7 @@
     },
     {
         "AdventureTitle": "Rainforest Adventure",
-        "Image": "rainforest_expedition.jpg",
+        "Image": "https://i.ibb.co/RpXdSWy/aedrian-salazar-m-Sn2f9-Wl6-Vs-unsplash.jpg",
         "ID": "FE002",
         "CategoryName": "Forest Expeditions",
         "ShortDescription": "A captivating journey through vibrant rainforests.",
@@ -65,7 +65,7 @@
     },
     {
         "AdventureTitle": "Sahara Desert Exploration",
-        "Image": "desert_exploration.jpg",
+        "Image": "https://i.ibb.co/Chjmw25/tim-de-groot-y-NGQ830u-FB4-unsplash.jpg",
         "ID": "DE001",
         "CategoryName": "Desert Exploration",
         "ShortDescription": "Discover the wonders of the Sahara with camel treks and local culture.",
@@ -81,7 +81,7 @@
     },
     {
         "AdventureTitle": "Desert Stargazing Retreat",
-        "Image": "desert_stargazing.jpg",
+        "Image": "https://i.ibb.co/Xk1T64J/kenny-eliason-C8-HVCiuu8c0-unsplash.jpg",
         "ID": "DE002",
         "CategoryName": "Desert Exploration",
         "ShortDescription": "An unforgettable stargazing experience in the desert.",
@@ -97,7 +97,7 @@
     },
     {
         "AdventureTitle": "Coral Reef Diving",
-        "Image": "ocean_dives.jpg",
+        "Image": "https://i.ibb.co/NppczyZ/neom-t-Ddl-CJIw-OA-unsplash.jpg",
         "ID": "OD001",
         "CategoryName": "Ocean Dives",
         "ShortDescription": "Explore vibrant coral reefs and marine life.",
@@ -113,7 +113,7 @@
     },
     {
         "AdventureTitle": "Underwater Photography Dive",
-        "Image": "underwater_photography.jpg",
+        "Image": "https://i.ibb.co/bdLdZ5D/artists-eyes-n-B-m-Dxv-Cw-E-unsplash.jpg",
         "ID": "OD002",
         "CategoryName": "Ocean Dives",
         "ShortDescription": "Capture stunning underwater images in crystal-clear waters.",
@@ -129,7 +129,7 @@
     },
     {
         "AdventureTitle": "Serene Camping Retreat",
-        "Image": "camping_retreat.jpg",
+        "Image": "https://i.ibb.co/vCFRj43/kevin-ianeselli-ebnl-Hkqf-UHY-unsplash.jpg",
         "ID": "CR001",
         "CategoryName": "Camping Retreats",
         "ShortDescription": "A peaceful camping experience in nature.",
@@ -145,7 +145,7 @@
     },
     {
         "AdventureTitle": "Forest Camping Escape",
-        "Image": "forest_camping.jpg",
+        "Image": "https://i.ibb.co/Lh5nhp4/chaewul-kim-j1zh-Pxl-HJ8-U-unsplash.jpg",
         "ID": "CR002",
         "CategoryName": "Camping Retreats",
         "ShortDescription": "Reconnect with nature in a forest camping retreat.",
@@ -161,7 +161,7 @@
     },
     {
         "AdventureTitle": "Mangrove Kayaking Tour",
-        "Image": "mangrove_tour.jpg",
+        "Image": "https://i.ibb.co/CV9LJ6y/pascal-bernardon-G4rn-Y2j-Tla-Y-unsplash.jpg",
         "ID": "ME001",
         "CategoryName": "Mangrove Forest Expeditions",
         "ShortDescription": "Paddle through serene mangrove forests and spot wildlife.",
@@ -177,7 +177,7 @@
     },
     {
         "AdventureTitle": "Mangrove Ecosystem Exploration",
-        "Image": "mangrove_exploration.jpg",
+        "Image": "https://i.ibb.co/yVWzGHY/aristedes-carrera-Jj-L8-Uq8q-Pb-Y-unsplash.jpg",
         "ID": "ME002",
         "CategoryName": "Mangrove Forest Expeditions",
         "ShortDescription": "Discover the unique ecosystems of mangrove forests.",
@@ -190,22 +190,5 @@
         "EcoFriendlyFeatures": ["Sustainable practices", "Local community support"],
         "MaxGroupSize": 12,
         "SpecialInstructions": ["Binoculars recommended"]
-    },
-    {
-        "AdventureTitle": "Wildlife Safari Adventure",
-        "Image": "wildlife_safari.jpg",
-        "ID": "WS001",
-        "CategoryName": "Wildlife Safaris",
-        "ShortDescription": "Experience thrilling wildlife safaris in their natural habitat.",
-        "AdventureCost": 600,
-        "BookingAvailability": "Available",
-        "Location": "Serengeti, Tanzania",
-        "Duration": "7 days",
-        "AdventureLevel": "Moderate",
-        "IncludedItems": ["Safari vehicle", "Meals", "Accommodation"],
-        "EcoFriendlyFeatures": ["Conservation efforts", "Local guides"],
-        "MaxGroupSize": 8,
-        "SpecialInstructions": ["Respect wildlife distances"]
     }
-   
 ]
