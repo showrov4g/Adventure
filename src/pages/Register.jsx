@@ -13,7 +13,9 @@ const Register = () => {
     const email = form.get("email");
     const photo = form.get("photo");
     const password = form.get("password");
-
+    if(password.length <6 ){
+      return toast.error("Password Must be more than 6 Character")
+    }
     createUser(email, password)
       .then((result) => {
         const user = result.user;
