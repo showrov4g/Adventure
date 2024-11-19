@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Register = () => {
   const { createUser, setUser } = useContext(AuthContext);
+  const [error, setError] = useState({});
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,15 +14,27 @@ const Register = () => {
     const email = form.get("email");
     const photo = form.get("photo");
     const password = form.get("password");
-    if(password.length <6 ){
-      return toast.error("Password Must be more than 6 Character")
+    const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$/;
+    if (password.length < 6) {
+      setError({
+        ...error,
+        password: "Password Must be more than 6 Character",
+      });
+      return toast.error("Password Must be more than 6 Character");
+    }
+    if (!regex.test(password)) {
+      return setError({
+        ...error,
+        password:
+          "Password must have One Uppercase, one Lowercase and one Number",
+      });
     }
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         setUser(user);
         navigate(location?.state ? location.state : "/auth/login");
-        toast.success("You have succfully create your account");
+        toast.success("You have successfully create your account")
       })
       .catch((error) => {
         toast.error(`${error.message}`);
@@ -79,6 +92,9 @@ const Register = () => {
             required
           />
         </div>
+        {error.password && (
+          <label className="label text-xs text-red-600">{error.password}</label>
+        )}
         <div className="form-control mt-6">
           <button className="btn btn-primary">Register</button>
         </div>

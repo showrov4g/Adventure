@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import { toast } from "react-toastify";
@@ -24,6 +25,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
   }
+
   const logOut =()=>{
     setLoading(true)
     toast.success("You have successfully Log Out")
@@ -45,7 +47,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     logOut,
     userLogin,
-    loading
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

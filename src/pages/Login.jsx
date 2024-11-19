@@ -2,17 +2,37 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import { FcGoogle } from "react-icons/fc";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import auth from "../Firebase/Firebase.config";
 
 const Login = () => {
-  const { userLogin, setUser } = useContext(AuthContext);
+  const { userLogin, setUser, googleLogin } = useContext(AuthContext);
+  const [error, setError] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
+  const provider = new GoogleAuthProvider()
   console.log(location);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
     const email = form.get("email");
     const password = form.get("password");
+    const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$/;
+    if (password.length < 6) {
+      setError({
+        ...error,
+        password: "Password Must be more than 6 Character",
+      });
+      return toast.error("Password Must be more than 6 Character");
+    }
+    if (!regex.test(password)) {
+      return setError({
+        ...error,
+        password:
+          "Password must have One Uppercase, one Lowercase and one Number",
+      });
+    }
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
@@ -25,6 +45,12 @@ const Login = () => {
         toast.error(`${error.message}`);
       });
   };
+  const loginWithGoogle = ()=>{
+    signInWithPopup(auth, provider)
+    .then((result)=>{
+      toast.success("You have successfully login with google")
+    })
+  }
 
   return (
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl flex mx-auto">
@@ -59,6 +85,9 @@ const Login = () => {
             </a>
           </label>
         </div>
+        {error.password && (
+          <label className="label text-xs text-red-600">{error.password}</label>
+        )}
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
@@ -69,8 +98,14 @@ const Login = () => {
           </Link>
         </p>
       </form>
+      <div className="flex flex-col justify-center items-center">
+        <hr className="w-full " />
+        <p>or</p>
+        <hr className="w-full" />
+        <button onClick={loginWithGoogle} className="btn"> <FcGoogle />Login With Google</button>
+      </div>
     </div>
   );
 };
 
-
+export default Login;

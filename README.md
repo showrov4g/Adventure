@@ -16,3 +16,8 @@ npm i -D daisyui@latest
 use react testify for showing error alert and successful message
 
 npm install --save react-toastify
+
+
+
+react icon use:
+npm install react-icons --save
