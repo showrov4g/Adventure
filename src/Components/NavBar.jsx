@@ -1,12 +1,21 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const NavBar = () => {
+
+  
   const links = (
     <>
-      <li><NavLink to={'/'}>Home</NavLink></li>
-      <li><NavLink to={'/adventure'}>All Adventure</NavLink></li>
-      <li><NavLink >Update Profile</NavLink></li>
-
+      <li>
+        <NavLink to={"/"}>Home</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/AllAdventure"}>All Adventure</NavLink>
+      </li>
+      <li>
+        <NavLink>Update Profile</NavLink>
+      </li>
     </>
   );
 
@@ -34,22 +43,20 @@ const NavBar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            {
-                links
-            }
+            {links}
           </ul>
         </div>
-        <NavLink to='/' className="btn btn-ghost text-xl">Eco-Adventure</NavLink>
+        <NavLink to="/" className="btn btn-ghost text-xl">
+          Eco-Adventure
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-3">
-            {
-                links
-            }
-        </ul>
+        <ul className="menu menu-horizontal px-1 space-x-3">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link to="/auth/login" className="btn">
+          Login
+        </Link>
       </div>
     </div>
   );

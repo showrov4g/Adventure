@@ -1,0 +1,91 @@
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import { toast } from "react-toastify";
+
+const Register = () => {
+  const { createUser, setUser } = useContext(AuthContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.target);
+    const name = form.get("name");
+    const email = form.get("email");
+    const photo = form.get("photo");
+    const password = form.get("password");
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        toast.success("You have succfully create your account");
+      })
+      .catch((error) => {
+        toast.error("You have already register");
+      });
+  };
+  return (
+    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl flex mx-auto">
+      <form onSubmit={handleSubmit} className="card-body">
+        <h1 className="text-5xl font-semibold">Register Now</h1>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Name</span>
+          </label>
+          <input
+            name="name"
+            type="text"
+            placeholder="Name"
+            className="input input-bordered"
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Email</span>
+          </label>
+          <input
+            name="email"
+            type="email"
+            placeholder="email"
+            className="input input-bordered"
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Photo URL</span>
+          </label>
+          <input
+            name="Photo"
+            type="text"
+            placeholder="Photo-URL"
+            className="input input-bordered"
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Password</span>
+          </label>
+          <input
+            name="password"
+            type="password"
+            placeholder="password"
+            className="input input-bordered"
+            required
+          />
+        </div>
+        <div className="form-control mt-6">
+          <button className="btn btn-primary">Register</button>
+        </div>
+        <p>
+          If you have don't any Account{" "}
+          <Link to="/auth/login" className="text-red-600">
+            Login Now
+          </Link>
+        </p>
+      </form>
+    </div>
+  );
+};
+
+export default Register;
