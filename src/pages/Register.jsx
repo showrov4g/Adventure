@@ -2,11 +2,15 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { FcGoogle } from "react-icons/fc";
+import auth from "../Firebase/Firebase.config";
 
 const Register = () => {
   const { createUser, setUser } = useContext(AuthContext);
   const [error, setError] = useState({});
   const navigate = useNavigate();
+  const provider = new GoogleAuthProvider();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -40,6 +44,22 @@ const Register = () => {
         toast.error(`${error.message}`);
       });
   };
+  const loginWithGoogle = ()=>{
+    signInWithPopup(auth, provider)
+    .then((result)=>{
+      const user = result.user;
+      setUser(user);
+      navigate(location?.state ? location.state : "/");
+      toast.success("You have successfully login with google")
+    })
+    .catch(error=>{
+      toast.error(`${error.message}`);
+    })
+  }
+
+
+
+
   return (
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl flex mx-auto">
       <form onSubmit={handleSubmit} className="card-body">
@@ -105,6 +125,13 @@ const Register = () => {
           </Link>
         </p>
       </form>
+      <div className="flex flex-col justify-center items-center pb-6">
+        <hr className="w-full " />
+        <p>OR</p>
+        <hr className="w-full" />
+        <button onClick={loginWithGoogle} className="btn w-[90%] my-3"> <FcGoogle />Login With Google</button>
+      </div>
+    
     </div>
   );
 };

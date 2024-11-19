@@ -11,8 +11,7 @@ const Login = () => {
   const [error, setError] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
-  const provider = new GoogleAuthProvider()
-  console.log(location);
+  const provider = new GoogleAuthProvider();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -41,14 +40,19 @@ const Login = () => {
         toast.success("You Have successfully login");
       })
       .catch((error) => {
-        console.log(error);
         toast.error(`${error.message}`);
       });
   };
   const loginWithGoogle = ()=>{
     signInWithPopup(auth, provider)
     .then((result)=>{
+      const user = result.user;
+      setUser(user);
+      navigate(location?.state ? location.state : "/");
       toast.success("You have successfully login with google")
+    })
+    .catch(error=>{
+      toast.error(`${error.message}`);
     })
   }
 
@@ -98,11 +102,11 @@ const Login = () => {
           </Link>
         </p>
       </form>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center pb-6">
         <hr className="w-full " />
-        <p>or</p>
+        <p>OR</p>
         <hr className="w-full" />
-        <button onClick={loginWithGoogle} className="btn"> <FcGoogle />Login With Google</button>
+        <button onClick={loginWithGoogle} className="btn w-[90%] my-3"> <FcGoogle />Login With Google</button>
       </div>
     </div>
   );
