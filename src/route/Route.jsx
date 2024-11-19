@@ -6,6 +6,7 @@ import AdventureDetails from "../pages/AdventureDetails";
 import AuthLayout from "../MainLayOut/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,29 +24,32 @@ const router = createBrowserRouter([
   },
   {
     path: "/AdventureDetails/:ID",
-    element: <AdventureDetails></AdventureDetails>,
+    element: (
+      <PrivateRoute>
+        <AdventureDetails></AdventureDetails>
+      </PrivateRoute>
+    ),
     loader: async ({ params }) => {
       const res = await fetch("/adventure.json");
       const data = await res.json();
       const singleData = data.find((d) => d.ID === params.ID);
       return singleData;
-    }
+    },
   },
-    {
-      path:"/auth",
-      element: <AuthLayout></AuthLayout>,
-      children:[
-        {
-          path:"/auth/login",
-          element: <Login></Login>
-        },
-        {
-          path:"/auth/register",
-          element: <Register></Register>
-        }
-      ]
-    }
-    
+  {
+    path: "/auth",
+    element: <AuthLayout></AuthLayout>,
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/auth/register",
+        element: <Register></Register>,
+      },
+    ],
+  },
 ]);
 
 const Route = () => {
