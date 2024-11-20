@@ -37,7 +37,7 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        updateUserProfile({displayName:name, photoURL:photo})
+        updateUserProfile({displayName:name, photoURL: photo})
         navigate(location?.state ? location.state : "/");
         toast.success("You have successfully create your account")
       })
@@ -94,7 +94,7 @@ const Register = () => {
             <span className="label-text">Photo URL</span>
           </label>
           <input
-            name="Photo"
+            name="photo"
             type="text"
             placeholder="Photo-URL"
             className="input input-bordered"

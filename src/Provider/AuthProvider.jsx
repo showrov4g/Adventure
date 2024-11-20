@@ -16,7 +16,6 @@ const AuthProvider = ({ children }) => {
   const notify = () => toast("This is a toast notification !");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(loading, user);
 
   const createUser = (email, password) => {
     setLoading(true);

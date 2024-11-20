@@ -8,6 +8,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import ResetPassword from "../pages/ResetPassword";
+import MyProfile from "../pages/MyProfile";
+import UpdateProfile from "../pages/UpdateProfile";
 const router = createBrowserRouter([
 
   {
@@ -37,6 +39,19 @@ const router = createBrowserRouter([
       const singleData = data.find((d) => d.ID === params.ID);
       return singleData;
     },
+  },
+  {
+    path: "/profile",
+    element: <PrivateRoute>
+      <MyProfile></MyProfile>
+    </PrivateRoute>,
+
+  },
+  {
+    path:'/updateProfile',
+    element: <PrivateRoute>
+      <UpdateProfile></UpdateProfile>
+    </PrivateRoute>
   },
   {
     path: "/auth",

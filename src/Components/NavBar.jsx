@@ -1,11 +1,24 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { CgProfile } from "react-icons/cg";
 
 const NavBar = () => {
-  const {user, logOut} =useContext(AuthContext);
-
+  const { user, logOut } = useContext(AuthContext);
   
+  // +++++++++++++++++
+  const [hover, setHover] =useState(false);
+  const hoverData = user?.displayName
+  const onHover =(e)=>{
+    e.preventDefault()
+    setHover(true);
+  }
+  const hoverOut =(e)=>{
+    e.preventDefault()
+    setHover(false);
+  }
+  // +++++++++++++++++
+
   const links = (
     <>
       <li>
@@ -15,13 +28,15 @@ const NavBar = () => {
         <NavLink to={"/AllAdventure"}>All Adventure</NavLink>
       </li>
       <li>
-        <NavLink>Update Profile</NavLink>
+        {
+          user && user?.email ? <NavLink to={'/profile'}>My Profile</NavLink>: ''
+        }
       </li>
     </>
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 py-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,12 +69,33 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-3">{links}</ul>
       </div>
-      <div className="navbar-end">
-        {
-                  user && user?.email ? <button  onClick={logOut} className="btn">Log out</button>: <Link to="/auth/login" className="btn">
-                  Login
-                </Link>
-        }
+      <div className="navbar-end flex gap-3">
+        <div className="w-10 h-10 rounded-full">
+
+          {user && user?.email ? (
+            <img onMouseEnter={(e)=>onHover(e)} onMouseLeave={(e)=>hoverOut(e)}
+              className="w-full h-full rounded-full"
+              src={user?.photoURL}
+              alt=""
+            />
+          ) : (
+            ""
+          )}
+                    {
+            hover && <p className={hover}>{hoverData}</p>
+          }
+        </div>
+        <div>
+          {user && user?.email ? (
+            <button onClick={logOut} className="btn">
+              Log out
+            </button>
+          ) : (
+            <Link to="/auth/login" className="btn">
+              Login
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );
