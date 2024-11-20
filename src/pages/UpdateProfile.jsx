@@ -4,9 +4,10 @@ import { AuthContext } from "../Provider/AuthProvider";
 import auth from "../Firebase/Firebase.config";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
 
 const UpdateProfile = () => {
-  const { setUser, updateUserProfile } = useContext(AuthContext);
+  const { setUser, updateUserProfile, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const profileUpdate = (e) => {
@@ -14,17 +15,20 @@ const UpdateProfile = () => {
 
     const form = new FormData(e.target);
     const name = form.get("name");
+    console.log(name);
     const photo = form.get("photo");
-    updateUserProfile(auth.currentUser, {
+    console.log(photo);
+    updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     })
-      .then((newData) => {
-        toast.success("Your Profile update Successful");
-      })
-      .catch((error) => {
-        toast.error(error);
-      });
+    .then((data)=>{
+        // profile update 
+
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
     navigate(location?.state ? location.state : "/profile");
   };
   return (

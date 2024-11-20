@@ -20,8 +20,8 @@ const MyProfile = () => {
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">
-            <h4 className="border border-gray-500 p-3 m-1 rounded-md text-3xl">{user?.email}</h4>
-            <h4 className="border border-gray-500 p-3 m-1 rounded-md text-3xl">{user?.displayName}</h4>
+            <h4 className="border border-gray-500 p-3 m-1 rounded-md text-3xl">You Email: {user?.email}</h4>
+            <h4 className="border border-gray-500 p-3 m-1 rounded-md text-3xl">Your Name: {user?.displayName}</h4>
             
         <Link to="/updateProfile"><button className="btn">Update Profile</button></Link>
         </div>
