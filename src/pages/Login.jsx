@@ -43,18 +43,18 @@ const Login = () => {
         toast.error(`${error.message}`);
       });
   };
-  const loginWithGoogle = ()=>{
+  const loginWithGoogle = () => {
     signInWithPopup(auth, provider)
-    .then((result)=>{
-      const user = result.user;
-      setUser(user);
-      navigate(location?.state ? location.state : "/");
-      toast.success("You have successfully login with google")
-    })
-    .catch(error=>{
-      toast.error(`${error.message}`);
-    })
-  }
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        navigate(location?.state ? location.state : "/");
+        toast.success("You have successfully login with google");
+      })
+      .catch((error) => {
+        toast.error(`${error.message}`);
+      });
+  };
 
   return (
     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl flex mx-auto">
@@ -84,9 +84,13 @@ const Login = () => {
             required
           />
           <label className="label">
-            <a href="#" className="label-text-alt link link-hover">
+            <Link
+              to={"/auth/resetpassword"}
+              href="#"
+              className="label-text-alt link link-hover"
+            >
               Forgot password?
-            </a>
+            </Link>
           </label>
         </div>
         {error.password && (
@@ -106,7 +110,11 @@ const Login = () => {
         <hr className="w-full " />
         <p>OR</p>
         <hr className="w-full" />
-        <button onClick={loginWithGoogle} className="btn w-[90%] my-3"> <FcGoogle />Login With Google</button>
+        <button onClick={loginWithGoogle} className="btn w-[90%] my-3">
+          {" "}
+          <FcGoogle />
+          Login With Google
+        </button>
       </div>
     </div>
   );
