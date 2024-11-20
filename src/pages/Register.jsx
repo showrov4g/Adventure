@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import auth from "../Firebase/Firebase.config";
 
 const Register = () => {
-  const { createUser, setUser } = useContext(AuthContext);
+  const { createUser, setUser, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState({});
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
@@ -37,7 +37,8 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        navigate(location?.state ? location.state : "/auth/login");
+        updateUserProfile({displayName:name, photoURL:photo})
+        navigate(location?.state ? location.state : "/");
         toast.success("You have successfully create your account")
       })
       .catch((error) => {
