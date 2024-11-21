@@ -22,7 +22,7 @@ const AdventureDetails = () => {
     const currentTime = new Date();
     const hours = currentTime.getHours();
     if (hours >= 10 && hours < 20) {
-      window.open("https://meet.google.com", "_blank");
+      window.open("https://meet.google.com/tzz-opeh-zus", "_blank");
     } else {
         document.getElementById("my_modal_1").showModal()
     }
@@ -31,13 +31,13 @@ const AdventureDetails = () => {
   return (
     <div>
       <div className="w-11/12 mx-auto my-8">
-        <div className="w-3/6 mx-auto flex flex-col justify-center items-center">
+        <div className="w-full md:w-3/6 mx-auto flex flex-col justify-center items-center">
           <div className="rounded-xl mb-8">
             <img src={Image} alt="" className="w-full rounded-xl" />
           </div>
           <h1 className="text-4xl font-semibold">Title: {AdventureTitle}</h1>
-          <div className="grid grid-cols-2">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 space-y-3">
+            <div className="space-y-3">
               <h1 className="text-base font-bold">
                 Category Name:{" "}
                 <span className="!font-medium">{CategoryName}</span>
@@ -69,7 +69,7 @@ const AdventureDetails = () => {
                 ))}
               </p>
             </div>
-            <div>
+            <div className="space-y-3">
               <p className="font-bold">
                 Eco-Friendly Features:{" "}
                 {EcoFriendlyFeatures.map((item) => (
@@ -92,7 +92,7 @@ const AdventureDetails = () => {
               </p>
             </div>
           </div>
-          <button onClick={handleTalkWithExpert} className="btn">
+          <button onClick={handleTalkWithExpert} className="btn my-3">
             Talk with Expert
           </button>
         </div>

@@ -15,7 +15,7 @@ const AdvantureCard = () => {
   return (
     <div className="my-10">
       <div></div>
-      <div className="grid grid-cols-3 gap-16 mx-auto">
+      <div className=" grid grid-cols-1 md:grid-cols-3 gap-10 mx-auto">
         {adventures.map((adventure) => (
           <SingleAdvinterCard adventure={adventure}></SingleAdvinterCard>
         ))}

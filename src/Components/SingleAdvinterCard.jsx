@@ -4,7 +4,7 @@ const SingleAdvinterCard = ({ adventure }) => {
   const { AdventureTitle, Image, EcoFriendlyFeatures,ID } = adventure;
   return (
     <div>
-      <div className="card bg-base-100 w-96 shadow-xl">
+      <div className="card bg-base-100  shadow-xl">
         <figure>
           <img className="h-72"
             src={Image}

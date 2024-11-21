@@ -35,7 +35,7 @@ const UpdateProfile = () => {
   return (
     <div>
         <div className="w-11/12 mx-auto">
-      <form onSubmit={profileUpdate} className="card-body w-4/12 mx-auto">
+      <form onSubmit={profileUpdate} className="card-body w-full md:w-4/12 mx-auto">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Name</span>

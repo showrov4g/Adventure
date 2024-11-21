@@ -1,8 +1,8 @@
 const NewsLetter = () => {
   return (
-    <div className="w-5/6 mx-auto py-10 my-8 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500">
-      <div className="w-3/6 mx-auto">
-        <h1 className="text-4xl text-white">Subscribe to our NewsLetter to get Update news form us</h1>
+    <div className="w-11/12 md:w-5/6 mx-auto py-10 my-8 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500">
+      <div className="w-full md:w-3/6 mx-auto">
+        <h1 className="p-6 text-4xl text-white">Subscribe to our NewsLetter to get Update news form us</h1>
         <div>
           <form className="card-body">
             <div className="form-control">
