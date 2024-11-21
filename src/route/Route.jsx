@@ -10,53 +10,50 @@ import PrivateRoute from "./PrivateRoute";
 import ResetPassword from "../pages/ResetPassword";
 import MyProfile from "../pages/MyProfile";
 import UpdateProfile from "../pages/UpdateProfile";
+import Home from "../pages/Home";
 const router = createBrowserRouter([
-
   {
     path: "/",
     element: <MainLayOut></MainLayOut>,
     children: [
       {
         path: "/",
-        element: <AdvantureCard></AdvantureCard>,
+        element: <Home></Home>,
       },
-    ],
-  },
-  {
-    path: "AllAdventure",
-    element: <AllAdventure></AllAdventure>,
-  },
-  {
-    path: "/AdventureDetails/:ID",
-    element: (
-      <PrivateRoute>
-        <AdventureDetails></AdventureDetails>
-      </PrivateRoute>
-    ),
-    loader: async ({ params }) => {
-      const res = await fetch("/adventure.json");
-      const data = await res.json();
-      const singleData = data.find((d) => d.ID === params.ID);
-      return singleData;
-    },
-  },
-  {
-    path: "/profile",
-    element: <PrivateRoute>
-      <MyProfile></MyProfile>
-    </PrivateRoute>,
-
-  },
-  {
-    path:'/updateProfile',
-    element: <PrivateRoute>
-      <UpdateProfile></UpdateProfile>
-    </PrivateRoute>
-  },
-  {
-    path: "/auth",
-    element: <AuthLayout></AuthLayout>,
-    children: [
+      {
+        path: "AllAdventure",
+        element: <AllAdventure></AllAdventure>,
+      },
+      {
+        path: "/AdventureDetails/:ID",
+        element: (
+          <PrivateRoute>
+            <AdventureDetails></AdventureDetails>
+          </PrivateRoute>
+        ),
+        loader: async ({ params }) => {
+          const res = await fetch("/adventure.json");
+          const data = await res.json();
+          const singleData = data.find((d) => d.ID === params.ID);
+          return singleData;
+        },
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/updateProfile",
+        element: (
+          <PrivateRoute>
+            <UpdateProfile></UpdateProfile>
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/auth/login",
         element: <Login></Login>,
@@ -67,8 +64,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/auth/resetpassword",
-        element: <ResetPassword></ResetPassword>
-      }
+        element: <ResetPassword></ResetPassword>,
+      },
     ],
   },
 ]);

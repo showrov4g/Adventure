@@ -5,6 +5,7 @@ import auth from "../Firebase/Firebase.config";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
+import Footer from "../Components/Footer";
 
 const UpdateProfile = () => {
   const { setUser, updateUserProfile, setLoading } = useContext(AuthContext);
@@ -32,9 +33,9 @@ const UpdateProfile = () => {
     navigate(location?.state ? location.state : "/profile");
   };
   return (
-    <div className="w-11/12 mx-auto">
-      <NavBar></NavBar>
-      <form onSubmit={profileUpdate} className="card-body">
+    <div>
+        <div className="w-11/12 mx-auto">
+      <form onSubmit={profileUpdate} className="card-body w-4/12 mx-auto">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Name</span>
@@ -63,6 +64,7 @@ const UpdateProfile = () => {
           <button className="btn btn-primary">Update</button>
         </div>
       </form>
+    </div>
     </div>
   );
 };

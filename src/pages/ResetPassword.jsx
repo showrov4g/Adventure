@@ -14,6 +14,7 @@ const ResetPassword = () => {
     }else{
       sendPasswordResetEmail(auth, email)
       .then(()=>{
+        window.open('https://gmail.google.com', '_blank');
         toast.success("successfully send reset email");
       })
       .catch(error=>{
@@ -24,7 +25,7 @@ const ResetPassword = () => {
   }
 
   return (
-    <div>
+    <div className="w-3/12 mx-auto">
       <form onSubmit={handleReset} className="card-body">
         <div className="form-control">
           <label className="label">
