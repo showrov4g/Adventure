@@ -7,15 +7,20 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../Firebase/Firebase.config";
 
 const Login = () => {
-  const { userLogin, setUser, googleLogin } = useContext(AuthContext);
+  const { userLogin, setUser, googleLogin, setEmail } = useContext(AuthContext);
   const [error, setError] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
+  const [loginEmail, setLoginEmail] = useState('')
   useEffect(()=>{
     document.title = "Eco | Login"
   },[])
-
+  const handelForgetPassword=()=>{
+    setEmail(loginEmail)
+    navigate('/auth/ResetPassword')
+  }
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,6 +42,9 @@ const Login = () => {
           "Password must have One Uppercase, one Lowercase and one Number",
       });
     }
+
+
+
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
@@ -73,7 +81,9 @@ const Login = () => {
             name="email"
             type="email"
             placeholder="email"
+            value={loginEmail}
             className="input input-bordered"
+            onChange={(e)=>{setLoginEmail(e.target.value)}}
             required
           />
         </div>
@@ -89,12 +99,8 @@ const Login = () => {
             required
           />
           <label className="label">
-            <Link
-              to='/auth/ResetPassword'
-              className="label-text-alt link link-hover"
-            >
-              Forgot password?
-            </Link>
+
+            <button onClick={handelForgetPassword} className="label-text-alt link link-hover">Forget password? </button>
           </label>
         </div>
         {error.password && (
@@ -110,6 +116,7 @@ const Login = () => {
           </Link>
         </p>
       </form>
+      
       <div className="flex flex-col justify-center items-center pb-6">
         <hr className="w-full " />
         <p>OR</p>

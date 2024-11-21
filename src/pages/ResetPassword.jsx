@@ -1,13 +1,17 @@
 import { sendPasswordResetEmail } from "firebase/auth";
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import auth from "../Firebase/Firebase.config";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const ResetPassword = () => {
+  const{email} = useContext(AuthContext);
+  const [resetEmail, setResetEmail] = useState(email);
   useEffect(()=>{
     document.title = "Eco | ResetPassword"
   },[])
+ 
   
   const emailRef = useRef()
   const handleReset =(e)=>{
@@ -39,7 +43,9 @@ const ResetPassword = () => {
           ref={emailRef}
             type="email"
             placeholder="email"
+            value={resetEmail}
             className="input input-bordered"
+            onChange={(e)=>{setResetEmail(e.target.value)}}
             required
           />
         </div>

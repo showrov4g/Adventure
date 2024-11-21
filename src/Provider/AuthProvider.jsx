@@ -16,6 +16,7 @@ const AuthProvider = ({ children }) => {
   const notify = () => toast("This is a toast notification !");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [email, setEmail] = useState("");
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -54,6 +55,8 @@ const AuthProvider = ({ children }) => {
     loading,
     updateUserProfile,
     setLoading,
+    email,
+    setEmail,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

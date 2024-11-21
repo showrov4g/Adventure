@@ -15,7 +15,7 @@ npm install localforage match-sorter sort-by
 
 <h6>dasi ui install:</h6>
 npm i -D daisyui@latest
-use react testify for showing error alert and successful message
+<h6>use react testify for </h6>
 npm install --save react-toastify
 
 
