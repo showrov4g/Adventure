@@ -11,10 +11,12 @@ import ResetPassword from "../pages/ResetPassword";
 import MyProfile from "../pages/MyProfile";
 import UpdateProfile from "../pages/UpdateProfile";
 import Home from "../pages/Home";
+import ErrorPage from "../pages/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayOut></MainLayOut>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

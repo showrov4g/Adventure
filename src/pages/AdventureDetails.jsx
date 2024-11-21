@@ -106,7 +106,7 @@ const AdventureDetails = () => {
         <div className="modal-box">
           <h3 className="font-bold text-lg">Sorry</h3>
           <p className="py-4">
-            There is no Expert available
+            There is no Expert available. you can talk an expert between 10:00am - 8:00pm
           </p>
           <div className="modal-action">
             <form method="dialog">

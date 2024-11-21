@@ -21,3 +21,7 @@ npm install --save react-toastify
 
 react icon use:
 npm install react-icons --save
+
+
+use animate css for animation
+npm install animate.css --save

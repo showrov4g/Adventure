@@ -8,7 +8,7 @@ const MyProfile = () => {
   return (
     <div>
       <div className="w-11/12 mx-auto">
-        <div className="flex flex-col justify-center items-center space-y-6">
+        <div className="flex flex-col justify-center items-center space-y-6 animate__animated animate__headShake">
           <div>
             <h2 className="text-3xl md:text-5xl font-semibold">
               Welcome to:{" "}

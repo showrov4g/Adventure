@@ -11,8 +11,8 @@ const GallerySection = () => {
   return (
     <div className="flex flex-col justify-center items-center my-10">
       <h1 className="text-5xl font-bold my-5">Adventure Gallery</h1>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 my-10">
-        <div className="card bg-base-100  shadow-xl">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 my-10 animate__animated animate__fadeInUp">
+        <div className="card bg-base-100  shadow-xl ">
           <figure>
             <img className="rounded-lg"
               src={gallery1}
