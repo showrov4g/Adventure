@@ -65,7 +65,7 @@ const NavBar = () => {
               {links}
             </ul>
           </div>
-          <NavLink to="/" className="btn btn-ghost text-xl hidden md:block">
+          <NavLink to="/" className=" text-xl hidden md:block">
             Eco-Adventure
           </NavLink>
         </div>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import NavBar from "../Components/NavBar";
 import { AuthContext } from "../Provider/AuthProvider";
 import auth from "../Firebase/Firebase.config";

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import NavBar from "../Components/NavBar";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link, Outlet } from "react-router-dom";
@@ -10,7 +10,7 @@ const MyProfile = () => {
   },[])
   return (
     <div>
-      <div className="w-11/12 mx-auto">
+      <div className="w-11/12 mx-auto shadow-2xl py-8 bg-slate-200 rounded-lg">
         <div className="flex flex-col justify-center items-center space-y-6 animate__animated animate__headShake">
           <div>
             <h2 className="text-3xl md:text-5xl font-semibold">

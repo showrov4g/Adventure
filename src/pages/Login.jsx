@@ -90,8 +90,7 @@ const Login = () => {
           />
           <label className="label">
             <Link
-              to={"/auth/resetpassword"}
-              href="#"
+              to='/auth/ResetPassword'
               className="label-text-alt link link-hover"
             >
               Forgot password?

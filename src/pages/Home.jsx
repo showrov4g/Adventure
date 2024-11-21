@@ -14,7 +14,7 @@ const Home = () => {
       <div className="animate__animated animate__zoomIn">
         <Banner></Banner>
       </div>
-      <div className="animate__animated animate__flipInX">
+      <div className="animate__animated animate__fadeInRight">
         <AllAdventure></AllAdventure>
       </div>
       <GallerySection></GallerySection>

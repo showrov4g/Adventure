@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import auth from "../Firebase/Firebase.config";
 
 const Register = () => {
+
   const { createUser, setUser, updateUserProfile } = useContext(AuthContext);
   const [error, setError] = useState({});
   const navigate = useNavigate();
@@ -57,7 +58,9 @@ const Register = () => {
       toast.error(`${error.message}`);
     })
   }
-
+  useEffect(()=>{
+    document.title = "Eco | register"
+  },[])
  
 
 

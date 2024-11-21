@@ -1,12 +1,14 @@
 import { sendPasswordResetEmail } from "firebase/auth";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import auth from "../Firebase/Firebase.config";
+import { Link } from "react-router-dom";
 
 const ResetPassword = () => {
   useEffect(()=>{
-    document.title= "Eco | ResetPassword"
+    document.title = "Eco | ResetPassword"
   },[])
+  
   const emailRef = useRef()
   const handleReset =(e)=>{
     e.preventDefault();
@@ -27,7 +29,7 @@ const ResetPassword = () => {
   }
 
   return (
-    <div className="w-3/12 mx-auto">
+    <div className="w-3/12 mx-auto flex flex-col items-center justify-center bg-slate-200 rounded-xl shadow-lg  py-5">
       <form onSubmit={handleReset} className="card-body">
         <div className="form-control">
           <label className="label">
@@ -46,6 +48,7 @@ const ResetPassword = () => {
           <button className="btn btn-primary">Reset email</button>
         </div>
       </form>
+      <Link to='/'><button className="btn btn-primary">Go back to home</button></Link>
     </div>
   );
 };

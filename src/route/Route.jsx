@@ -7,11 +7,11 @@ import AuthLayout from "../MainLayOut/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
-import ResetPassword from "../pages/ResetPassword";
 import MyProfile from "../pages/MyProfile";
 import UpdateProfile from "../pages/UpdateProfile";
 import Home from "../pages/Home";
 import ErrorPage from "../pages/ErrorPage";
+import ResetPassword from "../pages/ResetPassword";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -65,8 +65,8 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-        path: "/auth/resetpassword",
-        element: <ResetPassword></ResetPassword>,
+        path: "/auth/ResetPassword",
+        element:<ResetPassword></ResetPassword>,
       },
     ],
   },
