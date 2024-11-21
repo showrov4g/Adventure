@@ -29,4 +29,4 @@ npm install animate.css --save
 
 
 <h1>full website</h1>
-<img src="/full.jpeg">
+<img src="./public/full.jpeg">
