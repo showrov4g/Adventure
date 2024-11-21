@@ -10,15 +10,16 @@ import Footer from "../Components/Footer";
 const UpdateProfile = () => {
   const { setUser, updateUserProfile, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
+  useEffect(()=>{
+    document.title = "Eco | UpdateProfile"
+  },[])
 
   const profileUpdate = (e) => {
     e.preventDefault();
 
     const form = new FormData(e.target);
     const name = form.get("name");
-    console.log(name);
     const photo = form.get("photo");
-    console.log(photo);
     updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -28,7 +29,7 @@ const UpdateProfile = () => {
 
     })
     .catch((error)=>{
-        console.log(error);
+        toast.error(error)
     })
     navigate(location?.state ? location.state : "/profile");
   };

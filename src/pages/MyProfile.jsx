@@ -5,6 +5,9 @@ import { Link, Outlet } from "react-router-dom";
 
 const MyProfile = () => {
   const { user } = useContext(AuthContext);
+  useEffect(()=>{
+    document.title= "Eco | MyProfile"
+  },[])
   return (
     <div>
       <div className="w-11/12 mx-auto">

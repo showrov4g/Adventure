@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SingleAdvinterCard from "./SingleAdvinterCard";
+import { toast } from "react-toastify";
 
 const AdvantureCard = () => {
   const [adventures, setAdventure] = useState([]);
@@ -8,7 +9,7 @@ const AdvantureCard = () => {
       res
         .json()
         .then((data) => setAdventure(data))
-        .catch((err) => console.log(err));
+        .catch((err) => {toast.error(err)});
     });
   }, []);
 

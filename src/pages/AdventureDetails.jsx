@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../Components/NavBar";
 import { useLoaderData } from "react-router-dom";
 import Footer from "../Components/Footer";
 
 const AdventureDetails = () => {
+  useEffect(()=>{
+    document.title = "Eco | AdventureDetails"
+  },[])
   const {
     AdventureTitle,
     Image,
@@ -27,6 +30,9 @@ const AdventureDetails = () => {
         document.getElementById("my_modal_1").showModal()
     }
   };
+
+
+
 
   return (
     <div>

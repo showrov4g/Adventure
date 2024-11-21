@@ -1,8 +1,12 @@
+import { useEffect } from "react";
 import AdvantureCard from "../Components/AdvantureCard";
 import Footer from "../Components/Footer";
 import NavBar from "../Components/NavBar";
 
 const AllAdventure = () => {
+  useEffect(()=>{
+    document.title= "Eco | AdventureDetails"
+  },[])
   return (
     <div>
       <div className="w-11/12 mx-auto my-10">

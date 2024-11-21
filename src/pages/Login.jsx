@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { toast } from "react-toastify";
@@ -12,6 +12,11 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
+  useEffect(()=>{
+    document.title = "Eco | Login"
+  },[])
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);

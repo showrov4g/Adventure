@@ -4,11 +4,13 @@ import { toast } from "react-toastify";
 import auth from "../Firebase/Firebase.config";
 
 const ResetPassword = () => {
+  useEffect(()=>{
+    document.title= "Eco | ResetPassword"
+  },[])
   const emailRef = useRef()
   const handleReset =(e)=>{
     e.preventDefault();
     const email = emailRef.current.value;
-    console.log(email);
     if(!email){
       toast.error("Please provide valid address")
     }else{
