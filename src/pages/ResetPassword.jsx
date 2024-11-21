@@ -33,7 +33,7 @@ const ResetPassword = () => {
   }
 
   return (
-    <div className="w-3/12 mx-auto flex flex-col items-center justify-center bg-slate-200 rounded-xl shadow-lg  py-5">
+    <div className="w-11/12 md:w-3/12 mx-auto flex flex-col items-center justify-center bg-slate-200 rounded-xl shadow-lg  py-5">
       <form onSubmit={handleReset} className="card-body">
         <div className="form-control">
           <label className="label">

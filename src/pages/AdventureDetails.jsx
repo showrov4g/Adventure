@@ -36,7 +36,7 @@ const AdventureDetails = () => {
 
   return (
     <div>
-      <div className="w-11/12 mx-auto my-8">
+      <div className="w-11/12 mx-auto my-8 bg-slate-100 py-10 rounded-lg">
         <div className="w-full md:w-3/6 mx-auto flex flex-col justify-center items-center">
           <div className="rounded-xl mb-8">
             <img src={Image} alt="" className="w-full rounded-xl" />
@@ -98,7 +98,7 @@ const AdventureDetails = () => {
               </p>
             </div>
           </div>
-          <button onClick={handleTalkWithExpert} className="btn my-3">
+          <button onClick={handleTalkWithExpert} className="btn my-3 bg-slate-800 text-white hover:bg-slate-700">
             Talk with Expert
           </button>
         </div>
